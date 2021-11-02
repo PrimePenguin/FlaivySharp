@@ -14,8 +14,6 @@ namespace FlaivySharp.Services
 
         private IRequestExecutionPolicy _ExecutionPolicy;
 
-        private static JsonSerializer _Serializer = Serializer.JsonSerializer;
-
         private static HttpClient _Client { get; } = new HttpClient();
 
         protected string _accessToken { get; set; }
@@ -42,7 +40,7 @@ namespace FlaivySharp.Services
         /// <summary>
         /// Prepares a request to the path and appends the shop's access token header if applicable.
         /// </summary>
-        protected CloneableRequestMessage PrepareRequestMessage(RequestUri uri, HttpMethod method, HttpContent content = null)
+        public CloneableRequestMessage PrepareRequestMessage(RequestUri uri, HttpMethod method, HttpContent content = null)
         {
             var msg = new CloneableRequestMessage(uri.ToUri(), method, content);
             msg.Headers.Add("Content-Type", "application/json");
@@ -118,10 +116,13 @@ namespace FlaivySharp.Services
             {
                 exception = JsonConvert.DeserializeObject<FlaivyException>(rawResponse);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new FlaivyException(defaultMessage) { HttpStatusCode = code };
             }
+
+            if (exception == null) return;
+
             exception.HttpStatusCode = code;
             exception.Message ??= $"{defaultMessage}-{exception.Error}";
             throw exception;

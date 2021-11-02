@@ -27,10 +27,10 @@ namespace FlaivySharp.Services.Orders
         public virtual async Task<Order> GetOrder(string orderId)
         {
             var req = PrepareRequest($"{FlaivyUtility.Orders}/{orderId}");
-            return await ExecuteRequestAsync<Order>(req, HttpMethod.Get);
+            return await ExecuteRequestAsync<Order>(req, HttpMethod.Get);   
         }
 
-        public virtual async Task<object> UpdateOrder(UpdateOrderRequest request)
+        public virtual async Task<object> CreateOrUpdateOrder(UpdateOrderRequest request)
         {
             var req = PrepareRequest(FlaivyUtility.Orders);
             HttpContent content = null;

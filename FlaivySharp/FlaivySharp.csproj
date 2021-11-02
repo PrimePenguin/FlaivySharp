@@ -1,11 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<RootNamespace>FlaivySharp</RootNamespace>
+		<Version>0.0.1</Version>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Description>FlaivySharp is a C# and .NET library that helps developers easily authenticate with and manage Flaivy stores.</Description>
+		<Authors>Sumit Khunger</Authors>
+		<Copyright>Prime Penguin</Copyright>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
 
 </Project>
