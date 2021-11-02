@@ -18,7 +18,6 @@ namespace FlaivySharp.Services
 
         protected string _accessToken { get; set; }
 
-
         /// <summary>
         /// Creates a new instance of <see cref="FlaivyService" />.
         /// </summary>

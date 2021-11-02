@@ -16,14 +16,12 @@ Install-Package Flaivy
 If you're using .NET Core, you can use the `dotnet` command from your favorite shell:
 
 ```
-dotnet add package Quickbutik
+dotnet add package Flaivy
 ```
 
 # Using Flaivy
 
 **Note**: All instances of `accessToken` in the examples below **do not refer to your Flaivy accessToken**.
-An access token is the token returned after authenticating and authorizing a Quickbutik app installation with a
-real Flaivy store.
 
 ```cs
 var service = new ProductService(accessToken);
