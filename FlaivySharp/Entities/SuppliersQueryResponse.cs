@@ -5,7 +5,7 @@ namespace FlaivySharp.Entities
     public class SuppliersQueryResponse : CollectionBaseResponse
     {
         [JsonProperty("rows")]
-        public SupplierRow[] Rows { get; set; }
+        public SupplierRow[] Suppliers { get; set; }
     }
 
     public class SupplierRow

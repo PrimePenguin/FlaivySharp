@@ -71,7 +71,8 @@ namespace FlaivySharp.Entities
 
     public class EndCustomer
     {
-        [JsonProperty("customerNumber")] public long CustomerNumber { get; set; }
+        [JsonProperty("customerNumber")] 
+        public long CustomerNumber { get; set; }
     }
 
     public class OrderRow

@@ -19,15 +19,14 @@ namespace FlaivySharp.Extensions
             //Inspiration for this code from https://github.com/jaymedavis/stripe.net
             foreach (PropertyInfo property in obj.GetType().GetAllDeclaredProperties())
             {
-                object value = property.GetValue(obj, null);
-                string propName = property.Name;
+                var value = property.GetValue(obj, null);
+                var propName = property.Name;
                 if (value == null) continue;
 
                 if (property.CustomAttributes.Any(x => x.AttributeType == typeof(JsonPropertyAttribute)))
                 {
                     //Get the JsonPropertyAttribute for this property, which will give us its JSON name
-                    JsonPropertyAttribute attribute = property.GetCustomAttributes(typeof(JsonPropertyAttribute), false).Cast<JsonPropertyAttribute>().FirstOrDefault();
-
+                    var attribute = property.GetCustomAttributes(typeof(JsonPropertyAttribute), false).Cast<JsonPropertyAttribute>().FirstOrDefault();
                     propName = attribute != null ? attribute.PropertyName : property.Name;
                 }
 

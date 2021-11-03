@@ -56,7 +56,7 @@ namespace FlaivySharp.Infrastructure
         /// <param name="value">The property's value.</param>
         /// <param name="property">The property itself.</param>
         /// <returns>The new parameter.</returns>
-        protected virtual KeyValuePair<string, object> ToSingleParameter(string propName, object value, PropertyInfo property)
+        public virtual KeyValuePair<string, object> ToSingleParameter(string propName, object value, PropertyInfo property)
         {
             KeyValuePair<string, object> Join<T>(IEnumerable<T> values)
             {

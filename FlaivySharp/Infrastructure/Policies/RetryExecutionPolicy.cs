@@ -15,9 +15,7 @@ namespace FlaivySharp.Infrastructure.Policies
 
                 try
                 {
-                    var fullResult = await executeRequestAsync(request);
-
-                    return fullResult.Result;
+                    return (await executeRequestAsync(request)).Result;
                 }
                 catch (FlaivyRateLimitException)
                 {

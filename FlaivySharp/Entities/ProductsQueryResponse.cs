@@ -5,7 +5,7 @@ namespace FlaivySharp.Entities
     public class ProductsQueryResponse : CollectionBaseResponse
     {
         [JsonProperty("rows")]
-        public Row[] Rows { get; set; }
+        public Row[] Products { get; set; }
     }
 
     public class Row

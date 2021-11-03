@@ -6,7 +6,7 @@ namespace FlaivySharp.Infrastructure
 {
     public class JsonContent : ByteArrayContent
     {
-        private object Data { get; set; }
+        private object Data { get; }
 
         public JsonContent(object data) : base(ToBytes(data))
         {
@@ -17,13 +17,9 @@ namespace FlaivySharp.Infrastructure
         private static byte[] ToBytes(object data)
         {
             var rawData = Serializer.Serialize(data);
-
             return Encoding.UTF8.GetBytes(rawData);
         }
 
-        public JsonContent Clone()
-        {
-            return new JsonContent(Data);
-        }
+        public JsonContent Clone() => new JsonContent(Data);
     }
 }

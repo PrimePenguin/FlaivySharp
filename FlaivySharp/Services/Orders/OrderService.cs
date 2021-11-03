@@ -8,11 +8,11 @@ namespace FlaivySharp.Services.Orders
 {
     public class OrderService : FlaivyService
     {
-        protected OrderService(string accessToken) : base(accessToken)
+        public OrderService(string accessToken) : base(accessToken)
         {
         }
 
-        public virtual async Task<OrdersQueryResponse> GetOrders(string modifiedDate = null)
+        public virtual async Task<OrdersQueryResponse> GetOrders()
         {
             var req = PrepareRequest(FlaivyUtility.Orders);
             return await ExecuteRequestAsync<OrdersQueryResponse>(req, HttpMethod.Get);

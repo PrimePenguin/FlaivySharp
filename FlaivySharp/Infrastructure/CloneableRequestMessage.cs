@@ -7,15 +7,12 @@ namespace FlaivySharp.Infrastructure
     {
         public CloneableRequestMessage(Uri url, HttpMethod method, HttpContent content = null) : base(method, url)
         {
-            if (content != null)
-            {
-                Content = content;
-            }
+            if (content != null) Content = content;
         }
 
         public CloneableRequestMessage Clone()
         {
-            HttpContent newContent = Content;
+            var newContent = Content;
 
             if (newContent != null && newContent is JsonContent c)
             {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using FlaivySharp.Infrastructure;
 using FlaivySharp.Infrastructure.Policies;
@@ -14,15 +13,15 @@ namespace FlaivySharp.Services
 
         private IRequestExecutionPolicy _ExecutionPolicy;
 
-        private static HttpClient _Client { get; } = new HttpClient();
+        private static HttpClient _client { get; } = new HttpClient();
 
-        protected string _accessToken { get; set; }
+        public string _accessToken { get; set; }
 
         /// <summary>
         /// Creates a new instance of <see cref="FlaivyService" />.
         /// </summary>
         /// <param name="accessToken">App Access token</param>
-        protected FlaivyService(string accessToken)
+        public FlaivyService(string accessToken)
         {
             _accessToken = accessToken;
 
@@ -31,7 +30,7 @@ namespace FlaivySharp.Services
             _ExecutionPolicy = _GlobalExecutionPolicy ?? new DefaultRequestExecutionPolicy();
         }
 
-        protected RequestUri PrepareRequest(string path)
+        public RequestUri PrepareRequest(string path)
         {
             return new RequestUri(new Uri($"https://dev.flaivy.com/integrations/exacta/{path}"));
         }
@@ -42,8 +41,7 @@ namespace FlaivySharp.Services
         public CloneableRequestMessage PrepareRequestMessage(RequestUri uri, HttpMethod method, HttpContent content = null)
         {
             var msg = new CloneableRequestMessage(uri.ToUri(), method, content);
-            msg.Headers.Add("Content-Type", "application/json");
-            msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer ", _accessToken);
+            msg.Headers.Add("Authorization", $"Bearer {_accessToken}");
             return msg;
         }
 
@@ -51,13 +49,13 @@ namespace FlaivySharp.Services
         /// Executes a request and returns the given type. Throws an exception when the response is invalid.
         /// Use this method when the expected response is a single line or simple object that doesn't warrant its own class.
         /// </summary>
-        protected async Task<T> ExecuteRequestAsync<T>(RequestUri uri, HttpMethod method, HttpContent content = null)
+        public async Task<T> ExecuteRequestAsync<T>(RequestUri uri, HttpMethod method, HttpContent content = null)
         {
             using (var baseRequestMessage = PrepareRequestMessage(uri, method, content))
             {
                 var policyResult = await _ExecutionPolicy.Run(baseRequestMessage, async requestMessage =>
                 {
-                    var request = _Client.SendAsync(requestMessage);
+                    var request = _client.SendAsync(requestMessage);
 
                     using (var response = await request)
                     {
@@ -98,7 +96,7 @@ namespace FlaivySharp.Services
             // If the error was caused by reaching the API rate limit, throw a rate limit exception.
             if ((int)code == 429 /* Too many requests */)
             {
-                var listMessage = "Exceeded 2 calls per second for api client. Reduce request rates to resume uninterrupted service.";
+                const string listMessage = "Exceeded 2 calls per second for api client. Reduce request rates to resume uninterrupted service.";
                 var error = JsonConvert.DeserializeObject<FlaivyRateLimitException>(rawResponse);
                 if (error != null)
                 {

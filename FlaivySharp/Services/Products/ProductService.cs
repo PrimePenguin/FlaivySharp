@@ -9,14 +9,14 @@ namespace FlaivySharp.Services.Products
 {
     public class ProductService : FlaivyService
     {
-        protected ProductService(string accessToken) : base(accessToken)
+        public ProductService(string accessToken) : base(accessToken)
         {
         }
 
         public virtual async Task<ProductsQueryResponse> GetProducts(string modifiedDate = null)
         {
             var requestBuilder = new StringBuilder().Append(FlaivyUtility.Articles);
-            if (modifiedDate != null) requestBuilder.Append($"/modifiedSince={modifiedDate}");
+            if (modifiedDate != null) requestBuilder.Append($"?modifiedSince={modifiedDate}");
 
             var req = PrepareRequest(requestBuilder.ToString());
             return await ExecuteRequestAsync<ProductsQueryResponse>(req, HttpMethod.Get);

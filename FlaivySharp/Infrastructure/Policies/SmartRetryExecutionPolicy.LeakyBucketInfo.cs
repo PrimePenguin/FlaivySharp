@@ -4,8 +4,8 @@
     {
         private class LeakyBucketState
         {
-            public int Capacity { get; private set; }
-            public int CurrentFillLevel { get; private set; }
+            public int Capacity { get; }
+            public int CurrentFillLevel { get; }
 
             public LeakyBucketState(int capacity, int currentFillLevel)
             {

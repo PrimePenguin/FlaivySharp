@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace FlaivySharp.Infrastructure.Policies
 {
     /// <summary>
-    /// A retry policy that attempts to pro-actively limit the number of requests that will result in a SQuickbutikRateLimitException
+    /// A retry policy that attempts to pro-actively limit the number of requests that will result in a FlaivyRateLimitException
     /// by implementing the leaky bucket algorithm.
     /// For example: if 100 requests are created in parallel, only 40 should be immediately sent, and the subsequent 60 requests
     /// should be throttled at 1 per 500ms.
@@ -22,9 +22,9 @@ namespace FlaivySharp.Infrastructure.Policies
     /// </remarks>
     public partial class SmartRetryExecutionPolicy : IRequestExecutionPolicy
     {
-        private const string RESPONSE_HEADER_API_CALL_LIMIT = "X-Quickbutik-Shop-Api-Call-Limit";
+        private const string RESPONSE_HEADER_API_CALL_LIMIT = "X-Flaivy-Shop-Api-Call-Limit";
 
-        private const string REQUEST_HEADER_ACCESS_TOKEN = "X-Quickbutik-Access-Token";
+        private const string REQUEST_HEADER_ACCESS_TOKEN = "X-Flaivy-Access-Token";
 
         private static readonly TimeSpan THROTTLE_DELAY = TimeSpan.FromMilliseconds(500);
 
@@ -64,8 +64,8 @@ namespace FlaivySharp.Infrastructure.Policies
                 catch (FlaivyRateLimitException)
                 {
                     //An exception may still occur:
-                    //-Quickbutik may have a slightly different algorithm
-                    //-Quickbutik may change to a different algorithm in the future
+                    //-Flaivy may have a slightly different algorithm
+                    //-Flaivy may change to a different algorithm in the future
                     //-There may be timing and latency delays
                     //-Multiple programs may use the same access token
                     //-Multiple instances of the same program may use the same access token
@@ -77,7 +77,6 @@ namespace FlaivySharp.Infrastructure.Policies
         private string GetAccessToken(HttpRequestMessage client)
         {
             IEnumerable<string> values = new List<string>();
-
             return client.Headers.TryGetValues(REQUEST_HEADER_ACCESS_TOKEN, out values) ?
                 values.FirstOrDefault() :
                 null;

@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FlaivySharp.Infrastructure
 {
@@ -13,20 +11,9 @@ namespace FlaivySharp.Infrastructure
 
         private Uri Url;
 
-        public Dictionary<string, object> QueryParams { get; } = new Dictionary<string, object>();
-
         public Uri ToUri()
         {
-            // Combine the url and the query param dictionary into a uri
-            var query = QueryParams.Select(kvp =>
-            {
-                return $"{kvp.Key}={Uri.EscapeDataString(kvp.Value.ToString())}";
-            });
-            var ub = new UriBuilder(Url)
-            {
-                Query = string.Join("&", query)
-            };
-            return ub.Uri;
+            return new UriBuilder(Url).Uri;
         }
 
         public override string ToString() => ToUri().ToString();
