@@ -5,10 +5,10 @@ namespace FlaivySharp.Entities
     public class ProductsQueryResponse : CollectionBaseResponse
     {
         [JsonProperty("rows")]
-        public Row[] Products { get; set; }
+        public FlaivyProduct[] Products { get; set; }
     }
 
-    public class Row
+    public class FlaivyProduct
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -17,7 +17,7 @@ namespace FlaivySharp.Entities
         public string Name { get; set; }
 
         [JsonProperty("articleNumber")]
-        public long ArticleNumber { get; set; }
+        public string ArticleNumber { get; set; }
 
         [JsonProperty("image")]
         public string Image { get; set; }

@@ -1,0 +1,11 @@
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\bin\Debug\TestFlaivy.exe.config
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\bin\Debug\TestFlaivy.exe
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\bin\Debug\TestFlaivy.pdb
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\obj\Debug\TestFlaivy.csprojAssemblyReference.cache
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\obj\Debug\TestFlaivy.csproj.CoreCompileInputs.cache
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\obj\Debug\TestFlaivy.exe
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\obj\Debug\TestFlaivy.pdb
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\bin\Debug\FlaivySharp.dll
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\bin\Debug\Newtonsoft.Json.dll
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\bin\Debug\FlaivySharp.pdb
+D:\PrimePenguin\Sdk\FlaivySharp\TestFlaivy\obj\Debug\TestFlaivy.csproj.CopyComplete
