@@ -9,3 +9,4 @@ D:\PrimePenguin\Sdk\FlaivySharp\FlaivySharp\obj\Debug\net461\FlaivySharp.csproj.
 D:\PrimePenguin\Sdk\FlaivySharp\FlaivySharp\obj\Debug\net461\FlaivySharp.csproj.CopyComplete
 D:\PrimePenguin\Sdk\FlaivySharp\FlaivySharp\obj\Debug\net461\FlaivySharp.dll
 D:\PrimePenguin\Sdk\FlaivySharp\FlaivySharp\obj\Debug\net461\FlaivySharp.pdb
+D:\PrimePenguin\Sdk\FlaivySharp\FlaivySharp\obj\Debug\net461\FlaivySharp.csprojAssemblyReference.cache

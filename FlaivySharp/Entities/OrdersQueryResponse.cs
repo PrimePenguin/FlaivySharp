@@ -5,6 +5,6 @@ namespace FlaivySharp.Entities
 {
     public class OrdersQueryResponse : CollectionBaseResponse
     {
-        [JsonProperty("rows")] public List<Order> Orders { get; set; }
+        [JsonProperty("rows")] public List<FlaivyOrder> Orders { get; set; }
     }
 }

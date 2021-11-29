@@ -12,9 +12,9 @@ namespace FlaivySharp.Services.Orders
         {
         }
 
-        public virtual async Task<OrdersQueryResponse> GetOrders()
+        public virtual async Task<OrdersQueryResponse> GetOrders(int page, int pageSize)
         {
-            var req = PrepareRequest(FlaivyUtility.Orders);
+            var req = PrepareRequest($"{FlaivyUtility.Orders}?page={page}&pageSize={pageSize}");
             return await ExecuteRequestAsync<OrdersQueryResponse>(req, HttpMethod.Get);
         }
 
@@ -24,13 +24,13 @@ namespace FlaivySharp.Services.Orders
             return await ExecuteRequestAsync<SuppliersQueryResponse>(req, HttpMethod.Get);
         }
 
-        public virtual async Task<Order> GetOrder(string orderId)
-        {
+        public virtual async Task<FlaivyOrder> GetOrder(string orderId)
+        {                 
             var req = PrepareRequest($"{FlaivyUtility.Orders}/{orderId}");
-            return await ExecuteRequestAsync<Order>(req, HttpMethod.Get);   
+            return await ExecuteRequestAsync<FlaivyOrder>(req, HttpMethod.Get);   
         }
 
-        public virtual async Task<object> CreateOrUpdateOrder(UpdateOrderRequest request)
+        public virtual async Task<object> CreateOrUpdateOrder(CreateOrUpdateOrderRequest request)
         {
             var req = PrepareRequest(FlaivyUtility.Orders);
             HttpContent content = null;

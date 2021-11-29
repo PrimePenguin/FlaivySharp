@@ -16,6 +16,9 @@ namespace FlaivySharp.Entities
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("systembolagetArticleNumber")]
+        public string SystemBolagetArticleNumber { get; set; }
+
         [JsonProperty("articleNumber")]
         public string ArticleNumber { get; set; }
 
@@ -34,8 +37,14 @@ namespace FlaivySharp.Entities
         [JsonProperty("colliSize")]
         public long ColliSize { get; set; }
 
+        [JsonProperty("price")]
+        public double? Price { get; set; }
+
+        [JsonProperty("countryOfOrigin")]
+        public string CountryOfOrigin { get; set; }
+
         [JsonProperty("supplier")]
-        public Brand Supplier { get; set; }
+        public Supplier Supplier { get; set; }
 
         [JsonProperty("brand")]
         public Brand Brand { get; set; }
@@ -45,5 +54,14 @@ namespace FlaivySharp.Entities
     {
         [JsonProperty("name")]
         public string Name { get; set; }
+    }
+
+    public class Supplier
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("GLNNumber")]
+        public string GLNNumber { get; set; }
     }
 }

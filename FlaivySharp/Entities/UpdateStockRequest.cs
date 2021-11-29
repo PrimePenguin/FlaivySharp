@@ -17,7 +17,7 @@ namespace FlaivySharp.Entities
         public string Message { get; set; }
 
         [JsonProperty("code")]
-        public long? Code { get; set; }
+        public long Code { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

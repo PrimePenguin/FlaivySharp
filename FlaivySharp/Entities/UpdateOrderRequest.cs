@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace FlaivySharp.Entities
 {
-    public class UpdateOrderRequest
+    public class CreateOrUpdateOrderRequest
     {
         [JsonProperty("systembolagetOrderNumber")]
         public string SystembolagetOrderNumber { get; set; }
@@ -15,10 +15,10 @@ namespace FlaivySharp.Entities
         public string YourReference { get; set; }
 
         [JsonProperty("deliveryDate")]
-        public DateTimeOffset DeliveryDate { get; set; }
+        public DateTimeOffset? DeliveryDate { get; set; }
 
         [JsonProperty("orderDate")]
-        public DateTimeOffset OrderDate { get; set; }
+        public DateTimeOffset? OrderDate { get; set; }
 
         [JsonProperty("orderState")]
         public string OrderState { get; set; }

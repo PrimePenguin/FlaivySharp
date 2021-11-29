@@ -13,11 +13,11 @@ namespace FlaivySharp.Services.Products
         {
         }
 
-        public virtual async Task<ProductsQueryResponse> GetProducts(int page, int pageSize, string modifiedDate = null)
+        public virtual async Task<ProductsQueryResponse> GetProducts(int page, int pageSize, string lastModified = null)
         {
             var requestBuilder = new StringBuilder().Append(FlaivyUtility.Articles);
-            requestBuilder.Append(modifiedDate != null
-                ? $"?modifiedSince={modifiedDate}&page={page}&pageSize={pageSize}"
+            requestBuilder.Append(lastModified != null
+                ? $"?lastModified={lastModified}&page={page}&pageSize={pageSize}"
                 : $"?page={page}&pageSize={pageSize}");
 
             var req = PrepareRequest(requestBuilder.ToString());
@@ -34,7 +34,7 @@ namespace FlaivySharp.Services.Products
                 var body = updateStockRequest.ToDictionary();
                 content = new JsonContent(body);
             }
-            return await ExecuteRequestAsync<UpdateStockResponse>(req, HttpMethod.Post, content);
+            return await ExecuteRequestAsync<UpdateStockResponse>(req, HttpMethod.Put, content);
         }
     }
 }

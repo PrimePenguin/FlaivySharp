@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace FlaivySharp.Entities
 {
-    public class Order
+    public class FlaivyOrder
     {
         [JsonProperty("orderRows")]
         public OrderRow[] OrderRows { get; set; }
@@ -15,7 +15,7 @@ namespace FlaivySharp.Entities
         public bool Cancelled { get; set; }
 
         [JsonProperty("orderNumber")]
-        public long OrderNumber { get; set; }
+        public string OrderNumber { get; set; }
 
         [JsonProperty("remarks")]
         public string Remarks { get; set; }
