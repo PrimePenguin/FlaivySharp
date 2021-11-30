@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using FlaivySharp.Entities;
 using FlaivySharp.Extensions;
@@ -12,9 +13,14 @@ namespace FlaivySharp.Services.Orders
         {
         }
 
-        public virtual async Task<OrdersQueryResponse> GetOrders(int page, int pageSize)
+        public virtual async Task<OrdersQueryResponse> GetOrders(int page, int pageSize, string lastModified = null)
         {
-            var req = PrepareRequest($"{FlaivyUtility.Orders}?page={page}&pageSize={pageSize}");
+            var requestBuilder = new StringBuilder().Append(FlaivyUtility.Orders);
+            requestBuilder.Append(lastModified != null
+                ? $"?lastModified={lastModified}&page={page}&pageSize={pageSize}"
+                : $"?page={page}&pageSize={pageSize}");
+
+            var req = PrepareRequest(requestBuilder.ToString());
             return await ExecuteRequestAsync<OrdersQueryResponse>(req, HttpMethod.Get);
         }
 
