@@ -9,7 +9,7 @@ namespace FlaivySharp.Entities
         public string SystembolagetOrderNumber { get; set; }
 
         [JsonProperty("storeNumber")]
-        public long StoreNumber { get; set; }
+        public string StoreNumber { get; set; }
 
         [JsonProperty("yourReference")]
         public string YourReference { get; set; }
@@ -45,9 +45,9 @@ namespace FlaivySharp.Entities
         public double Price { get; set; }
 
         [JsonProperty("orderedQuantity")]
-        public long OrderedQuantity { get; set; }
+        public int OrderedQuantity { get; set; }
 
         [JsonProperty("SBRowIndex")]
-        public long SbRowIndex { get; set; }
+        public int? SbRowIndex { get; set; }
     }
 }

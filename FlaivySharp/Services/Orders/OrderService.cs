@@ -36,7 +36,7 @@ namespace FlaivySharp.Services.Orders
             return await ExecuteRequestAsync<FlaivyOrder>(req, HttpMethod.Get);   
         }
 
-        public virtual async Task<object> CreateOrUpdateOrder(CreateOrUpdateOrderRequest request)
+        public virtual async Task<EntityPostOperationResponse> CreateOrUpdateOrder(CreateOrUpdateOrderRequest request)
         {
             var req = PrepareRequest(FlaivyUtility.Orders);
             HttpContent content = null;
@@ -47,7 +47,13 @@ namespace FlaivySharp.Services.Orders
                 content = new JsonContent(body);
             }
 
-            return await ExecuteRequestAsync<object>(req, HttpMethod.Post, content);
+            return await ExecuteRequestAsync<EntityPostOperationResponse>(req, HttpMethod.Post, content);
+        }
+
+        public virtual async Task<EntityPostOperationResponse> CancelOrder(string orderNumber)
+        {
+            var req = PrepareRequest($"{FlaivyUtility.Orders}/{orderNumber}/cancel");
+            return await ExecuteRequestAsync<EntityPostOperationResponse>(req, HttpMethod.Put);
         }
     }
 }
