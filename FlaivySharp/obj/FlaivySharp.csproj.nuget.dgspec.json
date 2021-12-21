@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PrimePenguin\\Sdk\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj": {}
+    "D:\\Work\\SDK\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj": {}
   },
   "projects": {
-    "D:\\PrimePenguin\\Sdk\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj": {
+    "D:\\Work\\SDK\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj": {
       "version": "0.0.1",
       "restore": {
-        "projectUniqueName": "D:\\PrimePenguin\\Sdk\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj",
+        "projectUniqueName": "D:\\Work\\SDK\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj",
         "projectName": "FlaivySharp",
-        "projectPath": "D:\\PrimePenguin\\Sdk\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj",
-        "packagesPath": "C:\\Users\\Sumit\\.nuget\\packages\\",
-        "outputPath": "D:\\PrimePenguin\\Sdk\\FlaivySharp\\FlaivySharp\\obj\\",
+        "projectPath": "D:\\Work\\SDK\\FlaivySharp\\FlaivySharp\\FlaivySharp.csproj",
+        "packagesPath": "C:\\Users\\khung\\.nuget\\packages\\",
+        "outputPath": "D:\\Work\\SDK\\FlaivySharp\\FlaivySharp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sumit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\khung\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.myget.org/F/abp-nightly/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net461": {
@@ -46,7 +45,7 @@
               "version": "[13.0.1, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

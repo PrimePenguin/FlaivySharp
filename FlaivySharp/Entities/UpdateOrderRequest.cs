@@ -26,11 +26,14 @@ namespace FlaivySharp.Entities
         [JsonProperty("remarks")]
         public string Remarks { get; set; }
 
-        [JsonProperty("deliveryInformation")]
-        public string DeliveryInformation { get; set; }
+        [JsonProperty("transportProvider")]
+        public string TransportProvider { get; set; }
 
         [JsonProperty("trackingCode")]
         public string TrackingCode { get; set; }
+
+        [JsonProperty("systembolagetReturnCode")]
+        public string SystembolagetReturnCode { get; set; }
 
         [JsonProperty("orderRows")]
         public UpdateOrderRow[] OrderRows { get; set; }
@@ -46,6 +49,9 @@ namespace FlaivySharp.Entities
 
         [JsonProperty("orderedQuantity")]
         public int OrderedQuantity { get; set; }
+
+        [JsonProperty("deliveredQuantity")]
+        public int DeliveredQuantity { get; set; }
 
         [JsonProperty("SBRowIndex")]
         public int? SbRowIndex { get; set; }
