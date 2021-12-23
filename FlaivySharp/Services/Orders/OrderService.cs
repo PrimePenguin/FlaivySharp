@@ -15,7 +15,7 @@ namespace FlaivySharp.Services.Orders
 
         public virtual async Task<OrdersQueryResponse> GetOrders(int page, int pageSize, string lastModified = null)
         {
-            var requestBuilder = new StringBuilder().Append(FlaivyUtility.Orders);
+            var requestBuilder = new StringBuilder().Append(Utils.Orders);
             requestBuilder.Append(lastModified != null
                 ? $"?lastModified={lastModified}&page={page}&pageSize={pageSize}"
                 : $"?page={page}&pageSize={pageSize}");
@@ -26,19 +26,19 @@ namespace FlaivySharp.Services.Orders
 
         public virtual async Task<SuppliersQueryResponse> GetSuppliers()
         {
-            var req = PrepareRequest(FlaivyUtility.Suppliers);
+            var req = PrepareRequest(Utils.Suppliers);
             return await ExecuteRequestAsync<SuppliersQueryResponse>(req, HttpMethod.Get);
         }
 
         public virtual async Task<FlaivyOrder> GetOrder(string orderId)
         {                 
-            var req = PrepareRequest($"{FlaivyUtility.Orders}/{orderId}");
+            var req = PrepareRequest($"{Utils.Orders}/{orderId}");
             return await ExecuteRequestAsync<FlaivyOrder>(req, HttpMethod.Get);   
         }
 
         public virtual async Task<EntityPostOperationResponse> CreateOrUpdateOrder(CreateOrUpdateOrderRequest request)
         {
-            var req = PrepareRequest(FlaivyUtility.Orders);
+            var req = PrepareRequest(Utils.Orders);
             HttpContent content = null;
 
             if (request != null)
@@ -52,7 +52,7 @@ namespace FlaivySharp.Services.Orders
 
         public virtual async Task<EntityPostOperationResponse> CancelOrder(string orderNumber)
         {
-            var req = PrepareRequest($"{FlaivyUtility.Orders}/{orderNumber}/cancel");
+            var req = PrepareRequest($"{Utils.Orders}/{orderNumber}/cancel");
             return await ExecuteRequestAsync<EntityPostOperationResponse>(req, HttpMethod.Put);
         }
     }

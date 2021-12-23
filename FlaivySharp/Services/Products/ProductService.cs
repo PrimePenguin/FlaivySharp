@@ -15,7 +15,7 @@ namespace FlaivySharp.Services.Products
 
         public virtual async Task<ProductsQueryResponse> GetProducts(int page, int pageSize, string lastModified = null)
         {
-            var requestBuilder = new StringBuilder().Append(FlaivyUtility.Articles);
+            var requestBuilder = new StringBuilder().Append(Utils.Articles);
             requestBuilder.Append(lastModified != null
                 ? $"?lastModified={lastModified}&page={page}&pageSize={pageSize}"
                 : $"?page={page}&pageSize={pageSize}");
@@ -26,7 +26,7 @@ namespace FlaivySharp.Services.Products
 
         public virtual async Task<UpdateStockResponse> UpdateStock(string articleNumber, UpdateStockRequest updateStockRequest)
         {
-            var req = PrepareRequest($"{FlaivyUtility.Articles}/{articleNumber}/quantities");
+            var req = PrepareRequest($"{Utils.Articles}/{articleNumber}/quantities");
             HttpContent content = null;
 
             if (updateStockRequest != null)
