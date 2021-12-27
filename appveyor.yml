@@ -7,9 +7,9 @@ build_script:
 environment:
   APPVEYOR_REPO_TAG: true
 artifacts:
-  - path: WebflowSharp/bin/Release/netstandard1.4
-    name: netstandard16
-  - path: WebflowSharp/bin/Release/net45
+  - path: FlaivySharp/bin/Release/netcoreapp2.2
+    name: netcoreapp22
+  - path: FlaivySharp/bin/Release/net461
     name: net461
 skip_commits:
   message: /\[skip\]/
