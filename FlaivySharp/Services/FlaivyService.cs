@@ -121,7 +121,7 @@ namespace FlaivySharp.Services
             if (exception == null) return;
 
             exception.HttpStatusCode = code;
-            exception.Message ??= $"{defaultMessage}-{exception.Error}";
+            exception.Message = exception.Message ?? $"{defaultMessage}-{exception.Error}";
             throw exception;
         }
     }

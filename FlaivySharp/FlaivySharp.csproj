@@ -9,7 +9,6 @@
 		<Description>FlaivySharp is a C# and .NET library that helps developers easily authenticate with and manage Flaivy stores.</Description>
 		<Authors>Sumit Khunger</Authors>
 		<Copyright>Prime Penguin</Copyright>
-		<LangVersion>latest</LangVersion>
 		<PackageLicenseUrl>https://raw.githubusercontent.com/PrimePenguin/FlaivySharp/master/LICENSE</PackageLicenseUrl>
 		<PackageProjectUrl>https://github.com/PrimePenguin/FlaivySharp</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/PrimePenguin/FlaivySharp</RepositoryUrl>
