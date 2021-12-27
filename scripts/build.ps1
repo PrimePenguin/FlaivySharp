@@ -1,6 +1,6 @@
 dotnet restore;
 dotnet build -c Release;
-dotnet pack --no-build -c Release FlaivySharp.csproj;
+dotnet pack --no-build -c Release FlaivySharp/FlaivySharp.csproj;
 
 $nupkg = (Get-ChildItem FlaivySharp/bin/Release/*.nupkg)[0];
 
