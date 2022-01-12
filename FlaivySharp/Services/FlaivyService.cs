@@ -32,7 +32,7 @@ namespace FlaivySharp.Services
 
         public RequestUri PrepareRequest(string path)
         {
-            return new RequestUri(new Uri($"https://dev.flaivy.com/integrations/exacta/{path}"));
+            return new RequestUri(new Uri($"https://flaivy.com/integrations/exacta/{path}"));
         }
 
         /// <summary>
