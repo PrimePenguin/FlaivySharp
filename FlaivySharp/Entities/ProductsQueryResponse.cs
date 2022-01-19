@@ -32,10 +32,10 @@ namespace FlaivySharp.Entities
         public string Weight { get; set; }
 
         [JsonProperty("alcoholPercentage")]
-        public double AlcoholPercentage { get; set; }
+        public double? AlcoholPercentage { get; set; }
 
         [JsonProperty("colliSize")]
-        public long ColliSize { get; set; }
+        public long? ColliSize { get; set; }
 
         [JsonProperty("price")]
         public double? Price { get; set; }
