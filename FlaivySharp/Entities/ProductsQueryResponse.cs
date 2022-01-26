@@ -40,6 +40,9 @@ namespace FlaivySharp.Entities
         [JsonProperty("price")]
         public double? Price { get; set; }
 
+        [JsonProperty("boxGTIN")]
+        public string BoxGTIN { get; set; }
+
         [JsonProperty("GTIN")]
         public string GTINumber { get; set; }
 
