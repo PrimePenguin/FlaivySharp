@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Abp.Extensions;
 using FlaivySharp.Entities;
 using FlaivySharp.Extensions;
 using FlaivySharp.Infrastructure;
@@ -13,12 +14,15 @@ namespace FlaivySharp.Services.Products
         {
         }
 
-        public virtual async Task<ProductsQueryResponse> GetProducts(int page, int pageSize, string lastModified = null)
+        public virtual async Task<ProductsQueryResponse> GetProducts(int page, int pageSize, string lastModified = null, string customerGLNNumber= null)
         {
             var requestBuilder = new StringBuilder().Append("articles");
+
             requestBuilder.Append(lastModified != null
                 ? $"?lastModified={lastModified}&page={page}&pageSize={pageSize}"
                 : $"?page={page}&pageSize={pageSize}");
+
+            if (!customerGLNNumber.IsNullOrEmpty()) requestBuilder.Append($"&GLNNumber={customerGLNNumber}");
 
             var req = PrepareRequest(requestBuilder.ToString());
             return await ExecuteRequestAsync<ProductsQueryResponse>(req, HttpMethod.Get);
