@@ -6,6 +6,9 @@ namespace FlaivySharp.Entities
     {
         [JsonProperty("quantityInStock")]
         public int QuantityInStock { get; set; }
+
+        [JsonProperty("availableQuantityInStock")]
+        public int AvailableQuantityInStock { get; set; }
     }
     
     public class UpdateStockResponse
