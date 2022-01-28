@@ -15,5 +15,11 @@ namespace FlaivySharp.Entities
 
         [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("GLNNumber")]
+        public string GLNNumber { get; set; }
+
+        [JsonProperty("extendClientId")]
+        public string ExtendClientId { get; set; }
     }
 }
