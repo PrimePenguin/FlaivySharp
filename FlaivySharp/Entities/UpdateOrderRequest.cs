@@ -15,10 +15,10 @@ namespace FlaivySharp.Entities
         public string YourReference { get; set; }
 
         [JsonProperty("deliveryDate")]
-        public DateTimeOffset? DeliveryDate { get; set; }
+        public string DeliveryDate { get; set; }
 
         [JsonProperty("orderDate")]
-        public DateTimeOffset? OrderDate { get; set; }
+        public string OrderDate { get; set; }
 
         [JsonProperty("orderState")]
         public string OrderState { get; set; }

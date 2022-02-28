@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net461;netcoreapp2.2</TargetFrameworks>
 		<RootNamespace>FlaivySharp</RootNamespace>
-		<Version>0.1.4</Version>
+		<Version>0.1.5</Version>
 	</PropertyGroup>
 	<PropertyGroup>
 		<Description>FlaivySharp is a C# and .NET library that helps developers easily authenticate with and manage Flaivy stores.</Description>
