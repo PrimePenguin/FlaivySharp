@@ -46,6 +46,9 @@ namespace FlaivySharp.Entities
         [JsonProperty("GTIN")]
         public string GTINumber { get; set; }
 
+        [JsonProperty("isSingleUnitPickAndPackAllowed")]
+        public bool IsSingleUnitPickAndPackAllowed { get; set; }
+
         [JsonProperty("countryOfOrigin")]
         public string CountryOfOrigin { get; set; }
 
