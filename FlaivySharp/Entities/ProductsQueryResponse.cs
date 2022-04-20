@@ -34,6 +34,9 @@ namespace FlaivySharp.Entities
         [JsonProperty("alcoholPercentage")]
         public double? AlcoholPercentage { get; set; }
 
+        [JsonProperty("VAT")]
+        public double? VAT { get; set; }
+
         [JsonProperty("colliSize")]
         public int? ColliSize { get; set; }
 
