@@ -24,9 +24,9 @@ namespace FlaivySharp.Services.Orders
             return await ExecuteRequestAsync<OrdersQueryResponse>(req, HttpMethod.Get);
         }
 
-        public virtual async Task<SuppliersQueryResponse> GetSuppliers()
+        public virtual async Task<SuppliersQueryResponse> GetSuppliers(int page, int pageSize)
         {
-            var req = PrepareRequest("suppliers");
+            var req = PrepareRequest($"suppliers?page={page}&pageSize={pageSize}");
             return await ExecuteRequestAsync<SuppliersQueryResponse>(req, HttpMethod.Get);
         }
 
